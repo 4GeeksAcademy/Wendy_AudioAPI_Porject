@@ -12,8 +12,12 @@ export const Playlist = () => {
 	const [volumeT, setVolumeT] = useState(0.5);
 	const [volumeE, setVolumeE] = useState('fa-solid fa-volume-low fa-xl');
 	const [songP, setSongP] = useState(0);
-	const [stepS, setStepS] = useState(0);
-	
+	const [getsongU, setGetSongU] = useState({});
+
+    const [songList, setSongList] = useState('');
+	// Fetch function 
+
+    const [stepS, setStepS] = useState(0);
 	
 	//	const[songArr, setSongArr]=useState([0,1,2]);
 let interval;
@@ -48,30 +52,70 @@ let interval;
 	// 	return () => stopCounter(); // when App is unmounted we should stop counter
 	//   }, []);
 
-	useEffect(() => {
-		if(playT==true){
+	// useEffect(() => {
+	// 	if(playT==true){
 		
-			interval= setInterval(()=>{
+	// 		interval= setInterval(()=>{
 				
-				// setSongP(stepS);
-				setStepS(Math.floor(audioTest.duration/100));
-				setSongP(songP+stepS);
-				alert(songP);
-				// console.log('this part runs second ' + Math.floor(audioTest.duration/100));
+	// 			// setSongP(stepS);
+	// 			setStepS(Math.floor(audioTest.duration/100));
+	// 			setSongP(songP+stepS);
+	// 			alert(songP);
+	// 			// console.log('this part runs second ' + Math.floor(audioTest.duration/100));
 
 			
 
-			},3000);		
-			return ()=> clearInterval(interval);
-		}
+	// 		},3000);		
+	// 		return ()=> clearInterval(interval);
+	// 	}
 
-		else{
-     setSongP(0);
-		}
+	// 	else{
+    //  setSongP(0);
+	// 	}
 
-	}, [playT]);
+	// }, [playT]);
+
+    useEffect(() => {
+		fetch('https://playground.4geeks.com/apis/fake/sound/songs')
+    .then(response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+      return response.json();
+
+        
+        // Read the response as JSON
+     //   setSongList( response.json());
+     
+   
+      //  return response.json();
+    })
+
+    .then(responseAsJson => {
+        // Do stuff with the JSONified response
+        console.log(responseAsJson);
+      setSongList(responseAsJson);
+    })
+    .catch(error => {
+        console.log('Looks like there was a problem: \n', error);
+    });
+
+	}, []);
 
 
+
+
+  
+	function play_function2(id) {
+	
+             //   setPlayStatus('fa-solid fa-pause fa-2xl');
+           
+               let test= 'https://playground.4geeks.com/apis/fake/sound/'+songList[id].url;
+               console.log(test);
+               audioTest.src =test;
+               audioTest.play();
+              
+                }
 
 	function play_function(id) {
 	
@@ -126,6 +170,7 @@ if(id==null)
 	function previous_function() {
 
 		setCurrentSong(currentSong - 1);
+        
 		audioTest.src=playlistSong[currentSong].url;
 		audioTest.play();
 
@@ -219,16 +264,16 @@ if(id==null)
 
 
 				<div class="ui-controls">
-					<input type="range" class="ui-slider" min="1" max="100" value={songP} step="1"/>
-					<span onClick={() => previous_function()}><i class="fa-solid fa-backward fa-xl" ></i></span>
+				{/* <input type="range" class="ui-slider" min="1" max="100" value={songP} step="1"/>
+					{/* <span onClick={() => previous_function()}><i class="fa-solid fa-backward fa-xl" ></i></span> */}
 
 					<span onClick={() => play_function()}><i className={playStatus} ></i></span>
-					<span onClick={() => next_function()}><i class="fa-solid fa-forward fa-xl"></i></span>
-					<span onClick={() => random_function()}><i class="fas fa-random fa-xl"></i></span>
-					<span><i class="fa-solid fa-repeat fa-xl"></i></span>
+					<span onClick={() => next_function()}><i class="fa-solid fa-forward fa-xl"></i></span> */}
+					<span onClick={() => play_function2(0)}><i class="fas fa-random fa-xl"></i></span>
+					{/* <span><i class="fa-solid fa-repeat fa-xl"></i></span>
 					<span onMouseDown={()=>counterDown()} onMouseUp={()=>counterUp()}><i className={volumeE}></i></span>
 					
-					<span onClick={() => volume_up()} ><i class="fa-solid fa-volume-high fa-xl"> </i></span>
+					<span onClick={() => volume_up()} ><i class="fa-solid fa-volume-high fa-xl"> </i></span> */}
 				</div>
 
 			</div>
