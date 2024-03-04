@@ -1,12 +1,74 @@
+body{
+    margin-top: 5%;
+    background-color: rgb(95, 91, 91);
+}
 
-/* 
+.playlist_div{
+        overflow-y: auto;
+        max-height: 500px;
+  
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.head_div{
+    display: flex;
+    justify-content: center;
+}
 
-*/
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3b3d40;
+}
+
+.container {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 1em;
+    margin: 0 auto;
+    width: 500px;
+  
+    border-radius: 10px;
+    background: linear-gradient(45deg, #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%);
+    color: white;
+}
+
+
+
+span {
+    cursor: pointer;
+  
+}
+
+.track-title{
+  height: 70px;
+  width: 100%;  
+  padding: auto;
+  border-bottom: 1px solid white;
+
+}
+
+
+
+
+
+
+.audio_div{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+
+
+.ui-controls {
+	height: 15%;
+	display: flex;
+	gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+	
+
+}
+
+
+    
