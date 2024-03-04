@@ -12,9 +12,8 @@ export const Playlist = () => {
     const [volumeT, setVolumeT] = useState(0.5);
     const [volumeE, setVolumeE] = useState('fa-solid fa-volume-low fa-xl');
     const [songP, setSongP] = useState(0);
-    const [getsongU, setGetSongU] = useState({});
 
-    const [songList, setSongList] = useState('');
+    const [songList, setSongList] = useState({});
     // Fetch function 
 
     const [stepS, setStepS] = useState(0);
@@ -23,11 +22,8 @@ export const Playlist = () => {
     let interval;
     let delay = 1000;
     let startPress = null;
-
     var audioTest = 0;
-    // useEffect(() => {
-    // 	return () => stopCounter(); // when App is unmounted we should stop counter
-    //   }, []);
+  
 
     // useEffect(() => {
     // 	if(playT==true){
@@ -174,9 +170,7 @@ export const Playlist = () => {
         }
     }
 
-    function random_function() {
-
-    }
+   
 
 
     function volume_up() {
@@ -202,14 +196,14 @@ export const Playlist = () => {
             </div>
 
             <div className="playlist_div">
-                {songList.map((element, index) => {
+            {songList.map((element, index) => 
 
 
-                    <div class="track-title">
-                        <span class="playlist-track" href="#" data-play-track="1" onClick={() => play_function(index)}><h4>{songList[0].title}</h4></span>
-                        <p>{songList[index].author}</p>
-                    </div>
-                })}
+<div class="track-title">
+    <span class="playlist-track" href="#" data-play-track="1" onClick={() => play_function(index)}><h4>{songList[index].name}</h4></span>
+    <p>{songList[index].category}</p>
+</div>
+)}
 
 
                 <audio ref={(e) => audioTest = e} preload="metadata" id="testTone" />
