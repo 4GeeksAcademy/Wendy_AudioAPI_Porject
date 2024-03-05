@@ -12,8 +12,8 @@ export const Playlist = () => {
     const [volumeT, setVolumeT] = useState(0.5);
     const [volumeE, setVolumeE] = useState('fa-solid fa-volume-low fa-xl');
     const [songP, setSongP] = useState(0);
+    const [songList, setSongList] = useState([]);
 
-    const [songList, setSongList] = useState({});
     // Fetch function 
 
     const [stepS, setStepS] = useState(0);
@@ -200,7 +200,7 @@ export const Playlist = () => {
 
 
 <div class="track-title">
-    <span class="playlist-track" href="#" data-play-track="1" onClick={() => play_function(index)}><h4>{songList[index].name}</h4></span>
+ <span class="playlist-track" href="#" data-play-track="1" onClick={() => play_function(index)}><h4>{songList[index].name}</h4></span>
     <p>{songList[index].category}</p>
 </div>
 )}
@@ -220,12 +220,11 @@ export const Playlist = () => {
                     <span onClick={() => previous_function()}><i class="fa-solid fa-backward fa-xl" ></i></span>
 
                     <span onClick={() => play_function()}><i className={playStatus} ></i></span>
-                    <span onClick={() => next_function()}><i class="fa-solid fa-forward fa-xl"></i></span> */}
+                    <span onClick={() => next_function()}><i class="fa-solid fa-forward fa-xl"></i></span> 
                     <span onClick={() => play_function2(0)}><i class="fas fa-random fa-xl"></i></span>
                     <span><i class="fa-solid fa-repeat fa-xl"></i></span>
                     <span onMouseDown={() => counterDown()} onMouseUp={() => counterUp()}><i className={volumeE}></i></span>
-
-                    <span onClick={() => volume_up()} ><i class="fa-solid fa-volume-high fa-xl"> </i></span> */}
+                    <span onClick={() => volume_up()} ><i class="fa-solid fa-volume-high fa-xl"> </i></span>
                 </div>
 
             </div>

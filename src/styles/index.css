@@ -3,11 +3,6 @@ body{
     background-color: rgb(95, 91, 91);
 }
 
-.playlist_div{
-        overflow-y: auto;
-        max-height: 500px;
-  
-}
 
 .head_div{
     display: flex;
@@ -23,11 +18,18 @@ h1{
     font-family: arial, helvetica, sans-serif;
     font-size: 1em;
     margin: 0 auto;
-    width: 500px;
-  
+    width: 600px;
+    height: 470px;
     border-radius: 10px;
     background: linear-gradient(45deg, #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%);
     color: white;
+}
+
+
+.playlist_div{
+    overflow-y: auto;
+    max-height: 350px;
+
 }
 
 
